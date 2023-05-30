@@ -9,14 +9,12 @@ environment:
 dependencies:
   bloc: ^8.1.1
   dio: ^5.1.1
-  equatable: ^2.0.5
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
   flutter_dotenv: ^5.0.2
   flutter_modular: ^5.0.3
   path: ^1.8.2
-  path_provider: ^2.0.15
   sqflite: ^2.2.8+4
   validatorless: ^1.2.3
 
