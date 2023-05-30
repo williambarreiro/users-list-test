@@ -1,5 +1,5 @@
 name: test_sodre
-description: A new Flutter project.
+description: Sodré Santoro Test.
 publish_to: 'none'
 version: 0.1.0
 
@@ -7,8 +7,14 @@ environment:
   sdk: '>=2.19.6 <3.0.0'
 
 dependencies:
+  bloc: ^8.1.1
+  dio: ^5.1.1
+  equatable: ^2.0.5
   flutter:
     sdk: flutter
+  flutter_bloc: ^8.1.2
+  flutter_dotenv: ^5.0.2
+  flutter_modular: ^5.0.3
 
 dev_dependencies:
   flutter_test:
@@ -17,3 +23,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - .env
