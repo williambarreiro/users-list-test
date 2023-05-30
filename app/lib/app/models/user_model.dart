@@ -23,7 +23,7 @@ class UserModel {
     return UserModel(
       name: map['name'] ?? '',
       email: map['email'] ?? '',
-      age: map['age']?.toInt() ?? 0,
+      age: map['age'] ?? 0,
     );
   }
 

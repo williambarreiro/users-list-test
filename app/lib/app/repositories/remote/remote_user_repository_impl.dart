@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:test_sodre/app/models/user_model.dart';
 
 import '../../core/rest_client/rest_client.dart';
@@ -10,10 +12,16 @@ class RemoteUserRepositoryImpl implements RemoteUserRepository {
 
   @override
   Future<List<UserModel>> getUsers() async {
-    final result = await _restClient.get('/users');
-    final resultList = result.data as List<dynamic>;
-    final users = resultList.map((e) => UserModel.fromMap(e)).toList();
-    return users;
+    try {
+      final result = await _restClient.get('/users');
+      final resultList = result as List<dynamic>;
+      final users = resultList.map((e) => UserModel.fromMap(e)).toList();
+      return users;
+    } on Exception catch (e, s) {
+      log('Exception no getUsers do RemoteUserRepository',
+          error: e, stackTrace: s);
+      rethrow;
+    }
   }
 
   @override

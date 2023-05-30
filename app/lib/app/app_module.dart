@@ -2,10 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_sodre/app/modules/user_list/user_list_module.dart';
 import 'package:test_sodre/app/modules/user_register/user_register_module.dart';
+import 'package:test_sodre/app/repositories/remote/remote_user_repository_impl.dart';
 
 import 'core/constants.dart';
 import 'core/environments.dart';
 import 'core/rest_client/dio_rest_client.dart';
+import 'services/user_service_impl.dart';
 
 class AppModule extends Module {
   @override
@@ -14,10 +16,13 @@ class AppModule extends Module {
           (i) => Dio(
             BaseOptions(
               baseUrl: Environments.param(Constants.envBaseUrlKey) ?? '',
+              connectTimeout: const Duration(seconds: 10),
             ),
           ),
         ),
         Bind.lazySingleton((i) => DioRestClient(i())),
+        Bind.lazySingleton((i) => RemoteUserRepositoryImpl(i())),
+        Bind.lazySingleton((i) => UserServiceImpl(i())),
       ];
 
   @override
