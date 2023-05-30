@@ -13,7 +13,7 @@ class UserCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(10.0),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 26.0, vertical: 8.0),
         child: Column(

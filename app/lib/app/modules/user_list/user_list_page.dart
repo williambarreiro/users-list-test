@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:test_sodre/app/core/widgets/default_button.dart';
 import 'package:test_sodre/app/modules/user_list/controller/user_list_controller.dart';
 
@@ -54,7 +55,10 @@ class UserListPage extends StatelessWidget {
           ),
           DefaultButton(
             title: 'Cadastrar',
-            onPressed: () {},
+            onPressed: () async {
+              await Modular.to.pushNamed('/user_register');
+              controller.loadUsers();
+            },
           ),
         ],
       ),

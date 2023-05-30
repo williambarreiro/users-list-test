@@ -15,8 +15,6 @@ class UserListController extends Cubit<UserListState> {
   Future<void> loadUsers() async {
     try {
       emit(Loading());
-      // Delay apenas para mostrar o loading
-      await Future.delayed(const Duration(seconds: 1));
       final users = await _userService.getUsers();
       emit(Success(users: users));
     } catch (e, s) {
