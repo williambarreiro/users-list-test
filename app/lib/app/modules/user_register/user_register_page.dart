@@ -39,6 +39,7 @@ class _UserRegisterPageState extends State<UserRegisterPage> {
         appBar: AppBar(
           title: const Text('Cadastro'),
         ),
+        backgroundColor: Colors.grey[200],
         body: BlocConsumer<UserRegisterController, UserRegisterState>(
           bloc: widget.controller,
           listener: (context, state) {
